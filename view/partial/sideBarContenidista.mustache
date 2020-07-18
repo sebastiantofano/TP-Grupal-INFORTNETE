@@ -1,0 +1,58 @@
+<!-- Sidebar -->
+<div class="col-md-2 left-panel" style="font-weight: 100;" >
+    {{#usuario}}
+        <h3 class="mt-2" >Bienvenido <strong>{{nombre}}</strong></h3>
+    {{/usuario}}
+    <h5>Contenidista</h5>
+    <a href="/inicioContenidista" class="badge badge-info ">Ir al inicio</a>
+    <br>
+    <a href="#" id="modo-oscuro" class="badge badge-dark mt-2">Modo Oscuro</a>
+    <br />
+    <a href="/login/cerrarSesion" class="badge badge-danger mt-2">Cerrar sesión</a>
+
+    <!-- Categorias -->
+    <h3 class="h5 mt-5">Mis notas</h3>
+    <div class="categories">
+        <ul>
+            {{#notasPorCategoria}}
+                <li><a href="/nota/notasPorCategoria/{{id}}">{{nombre}} <span>({{cantidad}})</span></a></li>
+            {{/notasPorCategoria}}
+            {{^notasPorCategoria}}
+               <li> No tiene ninguna nota, haga click <a href="/nota/crearnota">aquí</a> para crear una.</li>
+            {{/notasPorCategoria}}
+
+        </ul>
+    </div>
+    <h3 class="h5 mt-4">Mis publicaciones</h3>
+    <div class="categories">
+        <ul>
+            {{#publicaciones}}
+                <li><a href="/publicaciones">{{nombre}}</a></li>
+            {{/publicaciones}}
+            {{^publicaciones}}
+               <li> No tiene ninguna publicación, haga click <a href="/publicaciones/crearpublicacion">aquí</a> para crear una.</li>
+            {{/publicaciones}}
+        </ul>
+    </div>
+    <!-- End Categorias-->
+
+    <!-- Clima de google -->
+    <div class="">
+        {{#climaActual}}
+            <h3>{{ubicacion}}</h3>
+            <h3>{{descripcion}}</h3>
+            <h3>{{temperatura}}</h3>
+            <img src="{{icono}}">
+        {{/climaActual}}
+    </div>
+    <br>
+    <!-- End Clima de google -->
+    <button onclick="document.getElementById('demo').play()" class="btn btn-primary mb-2"  id="botonPlayMusic"><i class="icofont-play"></i></button>
+    <button onclick="document.getElementById('demo').pause()" class="btn btn-primary mb-2" id="botonPauseMusic"><i class="icofont-ui-pause"></i></button>
+    <button onclick="document.getElementById('demo').volume+=0.1" class="btn btn-primary mb-2"><i class="icofont-volume-up"></i></button>
+    <button onclick="document.getElementById('demo').volume-=0.1" class="btn btn-primary mb-2"><i class="icofont-volume-down"></i></button>
+    <img src="/view/img/bailando.gif" id="bailandoMusica"  hidden width="200">
+    <a class="weatherwidget-io my-2" href="https://forecast7.com/en/25d79n80d13/miami-beach/" data-label_1="MIAMEE BEACH"
+       data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="random_grey">MIAMEE BEACH WEATHER</a>
+</div>
+<!-- End Sidebar -->
